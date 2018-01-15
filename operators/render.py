@@ -23,7 +23,7 @@ class ViewMapSnapshot(bpy.types.Operator):
         bpy.context.scene.render.use_freestyle = True
         bpy.context.scene.render.layers.active.use_freestyle = True
 
-        def lineset_post_vm(scene, layer, lineset):
+        def lineset_post_viewmap(scene, layer, lineset):
             print(type(Operators()))
             print(dir(Operators()))
             print(Operators().get_strokes_size())
@@ -38,10 +38,10 @@ class ViewMapSnapshot(bpy.types.Operator):
             print(x)
 
         def post_render(scene):
-            parameter_editor.callbacks_lineset_post.remove(lineset_post_vm)
+            parameter_editor.callbacks_lineset_post.remove(lineset_post_viewmap)
             bpy.app.handlers.render_post.remove(post_render)
 
-        parameter_editor.callbacks_lineset_post.append(lineset_post_vm)
+        parameter_editor.callbacks_lineset_post.append(lineset_post_viewmap)
         bpy.app.handlers.render_post.append(post_render)
 
         bpy.ops.render.render()

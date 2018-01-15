@@ -25,14 +25,6 @@ class Manifold(object):
         raise NotImplementedError
 
 
-class Trajectory(object):
-    """
-    trajectory
-    """
-    def __init__(self):
-        pass
-
-
 class ViewMapManifold(Manifold):
     pass
 
